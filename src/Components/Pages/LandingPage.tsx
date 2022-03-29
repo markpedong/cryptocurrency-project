@@ -1,13 +1,13 @@
 import React from "react";
+import { Col, Container } from "react-bootstrap";
 
-type Props = {};
+interface Props {}
 
 function LandingPage({}: Props) {
   return (
-    <div>
-      LandingPage
-      <h1>CoinPrice</h1>
-    </div>
+    <Container>
+      <Col>test</Col>;
+    </Container>
   );
 }
 
