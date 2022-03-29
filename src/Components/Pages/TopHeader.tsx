@@ -1,7 +1,7 @@
 import React from "react";
-import { Col, Container, Row } from "react-bootstrap";
+import { Col, Container, Row, Nav, Navbar } from "react-bootstrap";
 import { HeaderTitle, HeaderDesc } from "../../Styles/MainHeaderStyle";
-import { FaMoon } from "react-icons/fa";
+import { FaMoon, FaCaretDown } from "react-icons/fa";
 import "../../Styles/header.scss";
 
 type Props = {};
