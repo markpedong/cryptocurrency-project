@@ -1,5 +1,5 @@
 import React from "react";
-import { Col, Container } from "react-bootstrap";
+import { Col, Container, Row, Button } from "react-bootstrap";
 import TopHeader from "./TopHeader";
 
 interface Props {}
@@ -7,9 +7,9 @@ interface Props {}
 function LandingPage({}: Props) {
   return (
     <Container>
-      <Col>
+      <Row>
         <TopHeader />
-      </Col>
+      </Row>
     </Container>
   );
 }

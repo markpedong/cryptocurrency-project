@@ -1,15 +1,17 @@
 import React from "react";
 import { Col, Container, Row } from "react-bootstrap";
-import { HeaderDetails } from "../Styles/MainHeaderStyle";
+import { HeaderTitle, HeaderDesc } from "../../Styles/MainHeaderStyle";
+import "../../Styles/header.scss";
 
 type Props = {};
 
 const TopHeader = ({}: Props) => {
   return (
-    <Container>
+    <Container fluid>
       <Row>
-        <Col>
-          <HeaderDetails>Crypto</HeaderDetails>
+        <Col className="header_container">
+          <HeaderTitle>Cryptos:</HeaderTitle>
+          <HeaderDesc>18,542</HeaderDesc>
         </Col>
       </Row>
     </Container>
