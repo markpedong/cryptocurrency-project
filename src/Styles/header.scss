@@ -1,7 +1,20 @@
-.header_container {
+.header_row {
+  padding: 0;
+}
+
+.header_container,
+.header_darkmode {
   display: flex;
+  align-items: center;
   font-family: "Inter", sans-serif;
+  padding-block: 0.3rem;
   font-size: 0.8rem;
-  margin: 0.5rem;
-  gap: 0.5rem;
+}
+
+.header_container {
+  justify-content: start;
+}
+
+.header_darkmode {
+  justify-content: end;
 }
