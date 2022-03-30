@@ -1,7 +1,7 @@
 import React from "react";
 import { Container, Form, FormControl, Nav, Navbar } from "react-bootstrap";
-import logo from "../Images/logo.png";
 import { FaSearch } from "react-icons/fa/";
+import logo from "../Images/logo.png";
 
 type Props = {};
 
