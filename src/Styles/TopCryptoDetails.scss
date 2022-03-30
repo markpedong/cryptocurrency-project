@@ -1,0 +1,38 @@
+.topcryptodetails_container {
+  padding-block: 2rem !important;
+  background-color: #d8e6ed;
+}
+
+.content_container {
+  padding: 0;
+  justify-content: center;
+}
+
+.top_cryto_details_container {
+  background-color: rgb(255, 255, 255);
+  border-radius: var(--radius-4);
+  margin-inline: 0.5rem;
+  display: grid;
+  align-items: flex-start;
+  max-inline-size: 19rem !important;
+  padding: 0.5rem;
+}
+
+.top_crypto_details__img {
+  inline-size: auto;
+  height: 3rem;
+  margin-block-start: 0.5rem;
+}
+
+.top_crypto_description_container {
+  grid-column: 2/2;
+  padding: 0 !important;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding-inline-start: 0.5rem !important;
+}
+
+.top_crypto_details {
+  max-width: 100%;
+}

@@ -2,7 +2,7 @@ import React from "react";
 import {
   HeaderDescStyle,
   HeaderTitleStyle,
-} from "../../Styles/StyledComponents";
+} from "../../../Styles/StyledComponents";
 import { Col } from "react-bootstrap";
 
 interface Props {

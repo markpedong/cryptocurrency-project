@@ -2,7 +2,7 @@ import React from "react";
 import { Container, Form, FormControl, Nav, Navbar } from "react-bootstrap";
 import { FaSearch } from "react-icons/fa/";
 import logo from "../../Images/logo.png";
-import "../../Styles/navbarSection.scss";
+import "../../../Styles/navbarSection.scss";
 
 export const NavbarSection: React.FC = () => {
   return (

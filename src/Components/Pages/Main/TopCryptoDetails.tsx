@@ -1,12 +1,34 @@
-import React from "react";
-import { Container, Row, Col } from "react-bootstrap";
-import "../../Styles/TopCryptoDetails.scss";
+import { Col, Container, Row } from "react-bootstrap";
+import "../../../Styles/TopCryptoDetails.scss";
+import { TopCryptoDetailsComponent } from "./TopCryptoDetailsComponent";
+import TopCryptoDetailsData from "../../../Data/TopCryptoDetails.json";
+import { useState } from "react";
+import Slider from "react-slick";
 
-export const TopCryptoDetails: React.FC = () => {
+export const TopCryptoDetails = () => {
+  const settings = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 5,
+    slidesToScroll: 5,
+  };
+
   return (
-    <Container className="content_container">
+    <Container className="topcryptodetails_container">
       <Row>
-        <Col>test</Col>
+        <Slider {...settings}>
+          {TopCryptoDetailsData.map((crypto, index) => {
+            return (
+              <TopCryptoDetailsComponent
+                key={index}
+                name={crypto.name}
+                description={crypto.description}
+                image={crypto.image}
+              />
+            );
+          })}
+        </Slider>
       </Row>
     </Container>
   );

@@ -1,7 +1,7 @@
 import axios from "axios";
 import React, { FC, useEffect, useState } from "react";
-import { Container, Row } from "react-bootstrap";
-import "../../Styles/navbarSection.scss";
+import { Container, Row, Col } from "react-bootstrap";
+import "../../../Styles/navbarSection.scss";
 import { HeaderDetails } from "./TopHeaderComponent";
 import numeral from "numeral";
 
@@ -36,14 +36,18 @@ export const TopHeader = () => {
 
   return (
     <Container>
-      <Row className="header_row">
-        <HeaderDetails title="Cryptos:" cryptodata={data.totalcrypto} />
-        <HeaderDetails title="Exchanges:" cryptodata={data.markets} />
-        <HeaderDetails title="Market Cap:" cryptodata={data.totalmarketcap} />
-        <HeaderDetails title="24h Vol:" cryptodata={data.volume24H} />
-        <HeaderDetails title="Dominance:" />
-        <HeaderDetails title="BTC:" cryptodata={data.btcdominance} />
-        <HeaderDetails title="ETH:" cryptodata={data.ethdominance} />
+      <Row xs={"auto"} className="header_row">
+        <Col className="header_col">
+          <HeaderDetails title="Cryptos:" cryptodata={data.totalcrypto} />
+          <HeaderDetails title="Exchanges:" cryptodata={data.markets} />
+          <HeaderDetails title="Market Cap:" cryptodata={data.totalmarketcap} />
+          <HeaderDetails title="24h Vol:" cryptodata={data.volume24H} />
+        </Col>
+        <Col className="header_col">
+          <HeaderDetails title="Dominance:" />
+          <HeaderDetails title="BTC:" cryptodata={data.btcdominance} />
+          <HeaderDetails title="ETH:" cryptodata={data.ethdominance} />
+        </Col>
       </Row>
     </Container>
   );

@@ -1,16 +1,21 @@
 .header_row {
-  padding: 0;
   justify-content: center;
+  background-color: #d8e6ed;
   border-block-end: rgba(0, 0, 0, 0.1) solid 1px;
+}
+
+.header_col {
+  display: flex;
 }
 
 .header_container {
   display: flex;
   align-items: center;
+  justify-content: start;
   font-family: "Inter", sans-serif;
   padding-block: 0.3rem;
-  padding-inline-start: 0rem;
   font-size: 0.8rem;
+  margin-inline: 1rem;
 }
 
 .navbar-toggler {
@@ -81,6 +86,10 @@
 }
 
 //navbar styling
+
+.navbar {
+  background-color: #d8e6ed;
+}
 
 .nav-link {
   margin-inline: 0.5rem;

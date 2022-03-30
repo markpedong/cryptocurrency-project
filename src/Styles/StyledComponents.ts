@@ -15,3 +15,18 @@ export const HeaderDescStyle = styled.p`
   font-size: 0.8rem;
   font-weight: 700;
 `;
+
+export const CryptoHeaderDetailsStyle = styled.p`
+  color: var(--gray-9);
+  font-size: 1rem;
+  font-weight: 800;
+  margin-block: 0;
+  max-width: 100%;
+`;
+
+export const CryptoDescDetailsStyle = styled.p`
+  color: var(--gray-9);
+  font-size: 0.8rem;
+  font-weight: 600;
+  max-width: 100%;
+`;
