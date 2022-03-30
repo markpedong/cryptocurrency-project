@@ -7,7 +7,7 @@ interface Props {}
 
 function LandingPage({}: Props) {
   return (
-    <Container>
+    <Container fluid>
       <Row>
         <TopHeader />
         <NavbarSection />

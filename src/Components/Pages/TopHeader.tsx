@@ -1,6 +1,6 @@
 import React, { FC, useEffect, useLayoutEffect, useState } from "react";
 import { Col, Container, Row } from "react-bootstrap";
-import "../Styles/header.scss";
+import "../Styles/navbar.scss";
 import { HeaderDesc, HeaderTitle } from "../Styles/MainHeaderStyle";
 import axios from "axios";
 const numeral = require("numeral");
