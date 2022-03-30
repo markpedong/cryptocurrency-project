@@ -1,5 +1,6 @@
 import React from "react";
-import { Col, Container, Row, Button } from "react-bootstrap";
+import { Container, Row } from "react-bootstrap";
+import NavbarSection from "./Navbar";
 import TopHeader from "./TopHeader";
 
 interface Props {}
@@ -9,6 +10,7 @@ function LandingPage({}: Props) {
     <Container>
       <Row>
         <TopHeader />
+        <NavbarSection />
       </Row>
     </Container>
   );

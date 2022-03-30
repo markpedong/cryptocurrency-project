@@ -1,5 +1,6 @@
 .header_row {
   padding: 0;
+  justify-content: center;
 }
 
 .header_container,
@@ -14,8 +15,4 @@
 
 .header_container {
   justify-content: start;
-}
-
-.header_darkmode {
-  justify-content: end;
 }

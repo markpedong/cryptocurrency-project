@@ -1,38 +1,62 @@
-import React from "react";
-import { Col, Container, Row, Nav, Navbar } from "react-bootstrap";
-import { HeaderTitle, HeaderDesc } from "../../Styles/MainHeaderStyle";
-import { FaMoon, FaCaretDown } from "react-icons/fa";
-import "../../Styles/header.scss";
+import React, { FC, useEffect, useLayoutEffect, useState } from "react";
+import { Col, Container, Row } from "react-bootstrap";
+import "../Styles/header.scss";
+import { HeaderDesc, HeaderTitle } from "../Styles/MainHeaderStyle";
+import axios from "axios";
+const numeral = require("numeral");
 
-type Props = {};
+const TopHeader: FC = () => {
+  //create a state for the data from the api
+  const [data, setData] = useState({
+    totalcrypto: "Loading...",
+    markets: "Loading...",
+    totalmarketcap: "Loading...",
+    volume24H: "Loading...",
+    btcdominance: "Loading...",
+    ethdominance: "Loading...",
+  });
 
-const TopHeader = ({}: Props) => {
+  useLayoutEffect(() => {
+    axios.get("https://api.coingecko.com/api/v3/global").then((res) => {
+      const { data } = res.data;
+
+      // prettier-ignore
+      const cryptoData = {
+        totalcrypto: numeral(data.active_cryptocurrencies).format("0,0"),
+        markets: data.markets,
+        totalmarketcap: numeral(data.total_market_cap.usd).format("$0,0.00"),
+        volume24H: numeral(data.total_volume.usd).format("$0,0.00"),
+        btcdominance: parseFloat( data.market_cap_percentage.btc).toFixed(2) + "%",
+        ethdominance: parseFloat( data.market_cap_percentage.eth).toFixed(2) + "%",
+      };
+
+      setData(cryptoData);
+    });
+  }, []);
+
   return (
     <Container fluid>
       <Row className="header_row">
         <Col xs={"auto"} className="header_container">
           <HeaderTitle>Cryptos:</HeaderTitle>
-          <HeaderDesc>18,542</HeaderDesc>
+          <HeaderDesc>{data.totalcrypto}</HeaderDesc>
         </Col>
         <Col xs={"auto"} className="header_container">
           <HeaderTitle>Exchanges:</HeaderTitle>
-          <HeaderDesc>484</HeaderDesc>
+          <HeaderDesc>{data.markets}</HeaderDesc>
         </Col>
         <Col xs={"auto"} className="header_container">
           <HeaderTitle>Market Cap:</HeaderTitle>
-          <HeaderDesc>₱112,319,194,629,451</HeaderDesc>
+          <HeaderDesc>{data.totalmarketcap}</HeaderDesc>
         </Col>
         <Col xs={"auto"} className="header_container">
           <HeaderTitle>24h Vol:</HeaderTitle>
-          <HeaderDesc>₱6,289,330,421,958</HeaderDesc>
+          <HeaderDesc>{data.volume24H}</HeaderDesc>
         </Col>
         <Col xs={"auto"} className="header_container">
           <HeaderTitle>Dominance:</HeaderTitle>
-          <HeaderDesc>BTC: 41.9%</HeaderDesc>
-          <HeaderDesc>ETH: 19.1%</HeaderDesc>
-        </Col>
-        <Col className="header_darkmode">
-          <FaMoon />
+          <HeaderDesc>BTC: {data.btcdominance}</HeaderDesc>
+          <HeaderDesc>ETH: {data.ethdominance}</HeaderDesc>
         </Col>
       </Row>
     </Container>
