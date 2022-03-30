@@ -1,15 +1,15 @@
 import React from "react";
 import { Container, Form, FormControl, Nav, Navbar } from "react-bootstrap";
 import { FaSearch } from "react-icons/fa/";
-import logo from "../../Images/logo.png";
 import "../../../Styles/navbarSection.scss";
+const logoSrc = require("../../../Images/logo.png");
 
 export const NavbarSection: React.FC = () => {
   return (
     <Navbar expand="lg">
       <Container>
         <Navbar.Brand>
-          <img src={logo} alt="Logo" />
+          <img src={String(logoSrc)} alt="Logo" />
           <p>blockdetails</p>
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav">
