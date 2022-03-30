@@ -1,10 +1,10 @@
 .header_row {
   padding: 0;
   justify-content: center;
+  border-block-end: rgba(0, 0, 0, 0.1) solid 1px;
 }
 
-.header_container,
-.header_darkmode {
+.header_container {
   display: flex;
   align-items: center;
   font-family: "Inter", sans-serif;
@@ -13,15 +13,6 @@
   font-size: 0.8rem;
 }
 
-.header_container {
-  justify-content: start;
-}
-
-.container_section {
-  padding: 0;
-  font-family: "Inter", sans-serif;
-  font-size: 1rem;
-}
 .navbar-toggler {
   width: 30px;
   height: 20px;
@@ -134,7 +125,13 @@
   background-color: white;
 }
 
-@media screen and (max-width: 992px) {
+@media screen and (min-width: 992px) {
+  .navbar-expand-lg {
+    border-block-end: rgba(0, 0, 0, 0.1) solid 1px;
+  }
+}
+
+@media screen and (max-width: 991px) {
   .header_container {
     display: none;
   }

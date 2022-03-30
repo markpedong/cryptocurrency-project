@@ -1,14 +1,13 @@
 import React from "react";
 import { Container, Form, FormControl, Nav, Navbar } from "react-bootstrap";
 import { FaSearch } from "react-icons/fa/";
-import logo from "../Images/logo.png";
+import logo from "../../Images/logo.png";
+import "../../Styles/navbarSection.scss";
 
-type Props = {};
-
-function NavbarSection({}: Props) {
+export const NavbarSection: React.FC = () => {
   return (
     <Navbar expand="lg">
-      <Container className="navbar_container">
+      <Container>
         <Navbar.Brand>
           <img src={logo} alt="Logo" />
           <p>blockdetails</p>
@@ -38,6 +37,4 @@ function NavbarSection({}: Props) {
       </Container>
     </Navbar>
   );
-}
-
-export default NavbarSection;
+};

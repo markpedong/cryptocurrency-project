@@ -1,16 +1,16 @@
 import React from "react";
 import { Container, Row } from "react-bootstrap";
-import NavbarSection from "./Navbar";
-import TopHeader from "./TopHeader";
+import { NavbarSection } from "./Navbar";
+import { TopHeader } from "./TopHeader";
+import { TopCryptoDetails } from "./TopCryptoDetails";
 
-interface Props {}
-
-function LandingPage({}: Props) {
+function LandingPage() {
   return (
     <Container fluid>
       <Row>
         <TopHeader />
         <NavbarSection />
+        <TopCryptoDetails />
       </Row>
     </Container>
   );
