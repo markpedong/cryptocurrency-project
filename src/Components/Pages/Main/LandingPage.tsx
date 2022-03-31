@@ -1,8 +1,9 @@
 import React from "react";
 import { Container, Row } from "react-bootstrap";
 import { NavbarSection } from "./Navbar";
-import { TopHeader } from "./TopHeader";
-import { TopCryptoDetails } from "./TopCryptoDetails";
+import { TopHeader } from "./CryptoDetailHeader";
+import { TopCryptoDetails } from "./TopCryptoDetailContainer";
+import { TopCryptoCoins } from "./TopCryptoCoins";
 
 function LandingPage() {
   return (
@@ -11,6 +12,7 @@ function LandingPage() {
         <TopHeader />
         <NavbarSection />
         <TopCryptoDetails />
+        <TopCryptoCoins />
       </Row>
     </Container>
   );

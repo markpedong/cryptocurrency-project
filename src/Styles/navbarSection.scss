@@ -89,6 +89,7 @@
 
 .navbar {
   background-color: #d8e6ed;
+  border-block-end: rgba(0, 0, 0, 0.1) solid 1px;
 }
 
 .nav-link {
@@ -141,10 +142,6 @@
 }
 
 @media screen and (max-width: 991px) {
-  .header_container {
-    display: none;
-  }
-
   .navbar > .container {
     padding: 0;
     margin: 0;
@@ -155,5 +152,11 @@
   .navbar-nav .nav-link {
     padding-block: 1rem;
     margin-inline: 0rem;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .header_container {
+    display: none;
   }
 }

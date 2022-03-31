@@ -2,7 +2,7 @@ import axios from "axios";
 import React, { FC, useEffect, useState } from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import "../../../Styles/navbarSection.scss";
-import { HeaderDetails } from "./TopHeaderComponent";
+import { HeaderDetails } from "./CryptoDetailComponent";
 import numeral from "numeral";
 
 export const TopHeader = () => {

@@ -9,7 +9,7 @@
 }
 
 .top_cryto_details_container {
-  background-color: rgb(255, 255, 255);
+  background-color: white;
   border-radius: var(--radius-4);
   margin-inline: 0.5rem;
   display: grid;
@@ -44,6 +44,12 @@
 }
 
 @media screen and (max-width: 992px) {
+  .top_cryto_details_container {
+    block-size: 15rem;
+  }
+}
+
+@media screen and (max-width: 768px) {
   .topcryptodetails_container {
     display: none;
   }

@@ -7,7 +7,7 @@ const logoSrc = require("../../../Images/logo.png");
 export const NavbarSection: React.FC = () => {
   return (
     <Navbar expand="lg">
-      <Container>
+      <Container fluid="lg">
         <Navbar.Brand>
           <img src={String(logoSrc)} alt="Logo" />
           <p>blockdetails</p>
