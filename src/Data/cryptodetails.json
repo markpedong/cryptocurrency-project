@@ -1,0 +1,53 @@
+[
+  {
+    "image": "https://cryptologos.cc/logos/bitcoin-btc-logo.svg?v=022",
+    "name": "Bitcoin",
+    "description": "Bitcoin is a decentralized digital currency, without a central bank or single administrator, that can be sent from user to user on the peer-to-peer bitcoin network without the need for intermediaries."
+  },
+
+  {
+    "image": "https://cryptologos.cc/logos/ethereum-eth-logo.svg?v=022",
+    "name": "Ethereum",
+    "description": "Ethereum is a decentralized, open-source blockchain with smart contract functionality. Ether is the native cryptocurrency of the platform. Ether is second only to Bitcoin in market capitalization."
+  },
+  {
+    "image": "https://cryptologos.cc/logos/tether-usdt-logo.svg?v=022",
+    "name": "Tether",
+    "description": "Tether is a cryptocurrency that is hosted on the Ethereum and Bitcoin blockchains, among others. Its tokens are issued by the Hong Kong company Tether Limited, which in turn is controlled by the owners of Bitfinex."
+  },
+  {
+    "image": "https://cryptologos.cc/logos/bnb-bnb-logo.svg?v=022",
+    "name": "Binance Coin",
+    "description": "BNB Coin is a cryptocurrency that is used primarily to pay transaction and trading fees on the Binance exchange."
+  },
+  {
+    "image": "https://cryptologos.cc/logos/usd-coin-usdc-logo.svg?v=022",
+    "name": "USD Coin",
+    "description": "USD Coin is a digital stablecoin that is pegged to the United States dollar. USD Coin is managed by a consortium called Centre."
+  },
+  {
+    "image": "https://cryptologos.cc/logos/xrp-xrp-logo.svg?v=022",
+    "name": "Ripple",
+    "description": "Ripple is a real-time gross settlement system, currency exchange and remittance network created by Ripple Labs Inc., a US-based technology company."
+  },
+  {
+    "image": "https://cryptologos.cc/logos/cardano-ada-logo.svg?v=022",
+    "name": "Cardano",
+    "description": "Cardano is a public blockchain platform. It is open-source and decentralized, with consensus achieved using proof of stake. It can facilitate peer-to-peer transactions with its internal cryptocurrency, ADA."
+  },
+  {
+    "image": "https://cryptologos.cc/logos/terra-luna-luna-logo.svg?v=022",
+    "name": "Terra",
+    "description": "Terra is a public blockchain protocol deploying a suite of algorithmic decentralized stablecoins which underpin a thriving ecosystem that brings DeFi to the masses."
+  },
+  {
+    "image": "https://cryptologos.cc/logos/solana-sol-logo.svg?v=022",
+    "name": "Solana",
+    "description": "Solana is a public blockchain platform with smart contract functionality. Its native cryptocurrency is SOL. Solana claims to offer faster transaction times and lower costs than its main competitor, Ethereum."
+  },
+  {
+    "image": "https://cryptologos.cc/logos/avalanche-avax-logo.svg?v=022",
+    "name": "Avalanche",
+    "description": "Avalanche is a decentralized, open-source proof of stake blockchain with smart contract functionality. AVAX is the native cryptocurrency of the platform."
+  }
+]
