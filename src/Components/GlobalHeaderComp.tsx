@@ -1,16 +1,12 @@
 import { GlobalHeaderStyled, GlobalDescStyled } from "./StyledComponents";
 import { Col } from "react-bootstrap";
+import { IGlobalHeader } from "../Types/Interface";
 
-interface Props {
-  title: string;
-  cryptodata?: string;
-}
-
-export const GlobalHeaderComp = (props: Props) => {
+export const GlobalHeaderComp = ({ title, cryptodata }: IGlobalHeader) => {
   return (
     <Col xs={"auto"} className="header_container">
-      <GlobalHeaderStyled>{props.title}</GlobalHeaderStyled>
-      <GlobalDescStyled>{props.cryptodata}</GlobalDescStyled>
+      <GlobalHeaderStyled>{title}</GlobalHeaderStyled>
+      <GlobalDescStyled>{cryptodata}</GlobalDescStyled>
     </Col>
   );
 };

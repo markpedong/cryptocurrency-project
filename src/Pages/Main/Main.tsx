@@ -1,7 +1,8 @@
 import { FC } from "react";
 import { GlobalHeader } from "./GlobalHeader";
 import { NavbarSec } from "./Navbar";
-import TopCrypto from "./TopCrypto";
+import TopCoins from "./TopCoins";
+import { TopCrypto } from "./TopCrypto";
 
 const Main: FC = () => {
   return (
@@ -9,6 +10,7 @@ const Main: FC = () => {
       <GlobalHeader />
       <NavbarSec />
       <TopCrypto />
+      <TopCoins />
     </div>
   );
 };

@@ -1,18 +1,13 @@
 import React from "react";
-import { Container, Row, Col } from "react-bootstrap";
+import { Container, Row } from "react-bootstrap";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick-theme.css";
 import "slick-carousel/slick/slick.css";
 import CryptoDetails from "../../Data/cryptodetails.json";
 import "../../Styles/TopCrypto.scss";
+import { TCrypto } from "../../Types/Type";
 
-const TopCrypto = () => {
-  type TCrypto = {
-    className?: any;
-    style?: any;
-    onClick?: any;
-  };
-
+export const TopCrypto = () => {
   function PrevArrow(props: TCrypto) {
     const { className, style, onClick } = props;
     return (
@@ -98,5 +93,3 @@ const TopCrypto = () => {
     </Container>
   );
 };
-
-export default TopCrypto;
