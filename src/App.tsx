@@ -1,13 +1,11 @@
-import React, { FC } from "react";
-import LandingPage from "./Pages/Main/LandingPage";
-import "./Styles/App.scss";
+import Main from "./Pages/Main/Main";
 
-const App: FC = () => {
+function App() {
   return (
     <div className="App">
-      <LandingPage />
+      <Main />
     </div>
   );
-};
+}
 
 export default App;
