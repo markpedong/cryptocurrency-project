@@ -1,8 +1,8 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 
-const useFetch = (url: string) => {
-  const [data, setData] = useState(null);
+export const useFetchAPI = (url: string) => {
+  const [crypto, setData] = useState(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
 
@@ -19,9 +19,7 @@ const useFetch = (url: string) => {
       .finally(() => {
         setLoading(false);
       });
-  }, [url]);
+  }, []);
 
-  return { data, loading, error };
+  return { crypto, loading, error };
 };
-
-export default useFetch;

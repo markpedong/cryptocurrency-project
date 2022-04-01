@@ -1,7 +1,7 @@
 import { Col, Container, Row } from "react-bootstrap";
 import "../../../Styles/TopCryptoDetails.scss";
 import { TopCryptoDetailsComponent } from "./TopCryptoDetailsComponent";
-import TopCryptoDetailsData from "../../../Data/TopCryptoDetails.json";
+import TopCryptoDetailsData from "../../Data/TopCryptoDetails.json";
 import { useState } from "react";
 import Slider from "react-slick";
 
@@ -18,7 +18,7 @@ export const TopCryptoDetails = () => {
     <Container className="topcryptodetails_container">
       <Row>
         <Slider {...settings}>
-          {TopCryptoDetailsData.map((crypto, index) => {
+          {/* {TopCryptoDetailsData.map((crypto, index) => {
             return (
               <TopCryptoDetailsComponent
                 key={index}
@@ -27,7 +27,7 @@ export const TopCryptoDetails = () => {
                 image={crypto.image}
               />
             );
-          })}
+          })} */}
         </Slider>
       </Row>
     </Container>
