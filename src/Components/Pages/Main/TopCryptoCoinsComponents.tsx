@@ -7,7 +7,7 @@ export const TopCryptoCoinsComponents = (props: Props) => {
   return (
     <Container fluid="lg">
       <Col>
-        <p>Top Crypto Coins</p>
+        <p>test</p>
       </Col>
     </Container>
   );

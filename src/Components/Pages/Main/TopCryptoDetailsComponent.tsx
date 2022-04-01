@@ -6,6 +6,7 @@ import {
   CryptoDescDetailsStyle,
 } from "../../../Styles/StyledComponents";
 import axios from "axios";
+import useFetch from "../../Hooks/useFetch";
 
 interface Props {
   image: string;
@@ -14,24 +15,27 @@ interface Props {
 }
 
 export const TopCryptoDetailsComponent = (props: Props) => {
-  const [data, setData] = useState({
-    totalcrypto: "Loading...",
-    markets: "Loading...",
-    totalmarketcap: "Loading...",
-    volume24H: "Loading...",
-    btcdominance: "Loading...",
-    ethdominance: "Loading...",
-  });
+  // prettier-ignore
+  const {data, loading, error} = useFetch("https://api.coingecko.com/api/v3/global");
 
-  useEffect(() => {
-    axios
-      .get(
-        "https://cryptopanic.com/api/v1/posts/?auth_token=d977f2394295525856d2add495ed9a94661d5d4f&public=true"
-      )
-      .then((res) => {
-        console.log(res);
-      });
-  }, []);
+  // const [data, setData] = useState({
+  //   totalcrypto: "Loading...",
+  //   markets: "Loading...",
+  //   totalmarketcap: "Loading...",
+  //   volume24H: "Loading...",
+  //   btcdominance: "Loading...",
+  //   ethdominance: "Loading...",
+  // });
+
+  // useEffect(() => {
+  //   axios
+  //     .get(
+  //       "https://cryptopanic.com/api/v1/posts/?auth_token=d977f2394295525856d2add495ed9a94661d5d4f&public=true"
+  //     )
+  //     .then((res) => {
+  //       console.log(res);
+  //     });
+  // }, []);
 
   return (
     // prettier-ignore
