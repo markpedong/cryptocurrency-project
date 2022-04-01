@@ -35,20 +35,20 @@ export const GlobalHeader: FC = () => {
 
   return (
     // prettier-ignore
-    <Container fluid="lg">
-    <Row xs={"auto"} className="header_row">
-    <Col className="header_col">
-        <GlobalHeaderComp title="Cryptos:" cryptodata={data.totalcrypto} />
-        <GlobalHeaderComp title="Exchanges:" cryptodata={data.markets} />
-        <GlobalHeaderComp title="Market Cap:" cryptodata={data.totalmarketcap} />
-        <GlobalHeaderComp title="24h Vol:" cryptodata={data.volume24H} />
-      </Col>
+    <Container >
+      <Row xs={"auto"} className="header_row">
       <Col className="header_col">
-        <GlobalHeaderComp title="Dominance:" />
-        <GlobalHeaderComp title="BTC:" cryptodata={data.btcdominance} />
-        <GlobalHeaderComp title="ETH:" cryptodata={data.ethdominance} />
-      </Col>
-    </Row>
-  </Container>
+          <GlobalHeaderComp title="Cryptos:" cryptodata={data.totalcrypto} />
+          <GlobalHeaderComp title="Exchanges:" cryptodata={data.markets} />
+          <GlobalHeaderComp title="Market Cap:" cryptodata={data.totalmarketcap} />
+          <GlobalHeaderComp title="24h Vol:" cryptodata={data.volume24H} />
+        </Col>
+        <Col className="header_col">
+          <GlobalHeaderComp title="Dominance:" />
+          <GlobalHeaderComp title="BTC:" cryptodata={data.btcdominance} />
+          <GlobalHeaderComp title="ETH:" cryptodata={data.ethdominance} />
+        </Col>
+      </Row>
+    </Container>
   );
 };

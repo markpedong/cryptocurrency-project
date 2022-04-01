@@ -1,0 +1,44 @@
+.topcrypto_container {
+  padding-block: 1rem;
+  padding-block-end: 1.5rem;
+}
+
+.crypto_container {
+  background-color: white;
+  border-radius: var(--radius-4);
+  display: flex !important;
+  align-items: center;
+  padding: 0.5rem;
+  height: 15rem;
+}
+
+.crypto_image {
+  width: 50%;
+  height: 2.5rem;
+  align-self: center;
+  margin-inline: 1rem;
+}
+
+.crypto_description .container {
+  padding: 0;
+}
+
+.crypto_description :is(p) {
+  font-family: "Nunito sans", sans-serif;
+  padding: 0;
+}
+
+.crypto_desc {
+  font-size: var(--font-size-0);
+  padding-block-end: 0 !important;
+}
+
+.slick-slide > div {
+  padding: 0 0.5rem;
+}
+
+@media screen and (max-width: 768px) {
+  .topcrypto_container {
+    display: none;
+  }
+}

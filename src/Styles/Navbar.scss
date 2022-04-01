@@ -2,8 +2,6 @@
 
 .header_row {
   justify-content: center;
-  background-color: #d8e6ed;
-  border-block-end: rgba(0, 0, 0, 0.1) solid 1px;
 }
 
 .header_col {
@@ -136,17 +134,19 @@
   background-color: white;
 }
 
-@media screen and (min-width: 992px) {
+@media screen and (min-width: 768px) {
   .navbar-expand-lg {
-    border-block-end: rgba(0, 0, 0, 0.1) solid 1px;
+    border-block: rgba(0, 0, 0, 0.1) solid 1px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .header_container {
+    display: none;
   }
 }
 
 @media screen and (max-width: 991px) {
-  .header_container {
-    display: none;
-  }
-
   .navbar > .container {
     padding: 0;
     margin: 0;
