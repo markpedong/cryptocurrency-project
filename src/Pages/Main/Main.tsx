@@ -1,9 +1,8 @@
-import React from "react";
+import { FC } from "react";
+import { NavbarSec } from "./Navbar";
 
-type Props = {};
-
-const Main = (props: Props) => {
-  return <div>Main</div>;
+const Main: FC = () => {
+  return <NavbarSec />;
 };
 
 export default Main;
