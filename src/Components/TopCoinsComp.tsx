@@ -62,14 +62,16 @@ export const TopCoinsComp = ({ url, title, btcurl }: Props) => {
             };
 
             return (
-              <div key={index}>
+              <div key={index} className="top_coins">
                 <img
                   src={String(cryptoDetails.thumb)}
                   alt={cryptoDetails.name}
                 />
-                <p>{cryptoDetails.symbol}</p>
-                <p>{cryptoDetails.name}</p>
-                <p>{numeral(cryptoDetails.price).format("$0,0.00000")}</p>
+                <div className="top_coins_description">
+                  <p>{cryptoDetails.symbol}</p>
+                  <p>{cryptoDetails.name}</p>
+                  <p>{numeral(cryptoDetails.price).format("$0,0.00000")}</p>
+                </div>
               </div>
             );
           })}

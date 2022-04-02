@@ -38,3 +38,28 @@
 .global_desc_span :is(svg) {
   align-self: center;
 }
+
+.readmore_btn {
+  margin-inline-start: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  font-weight: 800;
+  color: rgba(0, 0, 0, 0.7);
+  font-family: "Poppins", sans-serif;
+  background: none !important;
+  text-decoration: underline;
+  border-radius: var(--radius-2);
+}
+
+#collase_container {
+  padding-block: 1rem;
+
+  p {
+    color: rgba(0, 0, 0, 0.7);
+    max-width: 100%;
+    color: rgba(0, 0, 0, 0.7);
+    font-size: 1rem;
+    font-weight: 500;
+    font-family: "SF UI Display", sans-serif;
+  }
+}

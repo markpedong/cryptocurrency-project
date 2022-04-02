@@ -12,7 +12,7 @@ const Main: FC = () => {
       <NavbarSec />
       <TopCrypto />
       <GlobalMarketChange />
-      {/* <TopCoins /> */}
+      <TopCoins />
     </div>
   );
 };

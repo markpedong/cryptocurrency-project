@@ -4,6 +4,13 @@
   display: grid;
 }
 
+.top_coins {
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+}
+
+.top_coins_description {
+}
 .topcoins_container :is(p) {
   font-family: "Nunito Sans", sans-serif;
 }
