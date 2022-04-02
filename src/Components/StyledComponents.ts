@@ -1,6 +1,10 @@
 import "../Styles/Font.scss";
 import styled from "styled-components";
 
+export const ContainerStyled = styled.div`
+  padding-block: 2rem;
+`;
+
 export const GlobalHeaderStyled = styled.p`
   margin-block-end: 0;
   color: var(--gray-9);
@@ -33,9 +37,18 @@ export const CryptoDescDetailsStyle = styled.p`
 
 export const GlobalMarketHeader = styled.p`
   color: var(--gray-9);
-  font-size: 1.2rem;
-  font-weight: 900;
+  font-size: 1.8rem;
+  font-weight: 700;
   max-width: 100%;
+  font-family: "Poppins", sans-serif;
+`;
+
+export const GlobalMarketDesc = styled.p`
+  color: var(--gray-9);
+  font-size: 1rem;
+  font-weight: 300;
+  max-width: 100%;
+  font-family: "SF UI Display", sans-serif;
 `;
 
 export const TopCoinsHeader = styled.p`
@@ -43,4 +56,9 @@ export const TopCoinsHeader = styled.p`
   font-size: 1.2rem;
   font-weight: 900;
   max-width: 100%;
+`;
+
+export const GlobalSpanStyled = styled.span`
+  font-weight: 700;
+  margin-inline: 0.5rem;
 `;
