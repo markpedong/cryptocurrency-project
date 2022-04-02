@@ -1,0 +1,9 @@
+.topcoins_container {
+  background-color: white;
+  padding: 1rem;
+  display: grid;
+}
+
+.topcoins_container :is(p) {
+  font-family: "Nunito Sans", sans-serif;
+}

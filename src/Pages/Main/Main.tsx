@@ -1,5 +1,6 @@
 import { FC } from "react";
 import { GlobalHeader } from "./GlobalHeader";
+import { GlobalMarketChange } from "./GlobalMarketChange";
 import { NavbarSec } from "./Navbar";
 import TopCoins from "./TopCoins";
 import { TopCrypto } from "./TopCrypto";
@@ -10,7 +11,8 @@ const Main: FC = () => {
       <GlobalHeader />
       <NavbarSec />
       <TopCrypto />
-      <TopCoins />
+      <GlobalMarketChange />
+      {/* <TopCoins /> */}
     </div>
   );
 };

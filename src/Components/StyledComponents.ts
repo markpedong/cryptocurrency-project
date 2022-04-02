@@ -30,3 +30,17 @@ export const CryptoDescDetailsStyle = styled.p`
   font-weight: 600;
   max-width: 100%;
 `;
+
+export const GlobalMarketHeader = styled.p`
+  color: var(--gray-9);
+  font-size: 1.2rem;
+  font-weight: 900;
+  max-width: 100%;
+`;
+
+export const TopCoinsHeader = styled.p`
+  color: var(--gray-9);
+  font-size: 1.2rem;
+  font-weight: 900;
+  max-width: 100%;
+`;

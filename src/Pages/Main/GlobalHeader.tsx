@@ -3,17 +3,19 @@ import numeral from "numeral";
 import { FC, useEffect, useState } from "react";
 import { Col, Container, Row } from "react-bootstrap";
 import { GlobalHeaderComp } from "../../Components/GlobalHeaderComp";
+import useFetchAPI from "../../Hooks/useFetchAPI";
+import { CryptoDetails } from "../../Types/Type";
 
 export const GlobalHeader: FC = () => {
   // prettier-ignore
-  const [data, setData] = useState({
+  const [data, setData] = useState<CryptoDetails>({
       totalcrypto: "Loading...",
       markets: "Loading...",
       totalmarketcap: "Loading...",
       volume24H: "Loading...",
       btcdominance: "Loading...",
       ethdominance: "Loading...",
-    });
+    } as CryptoDetails);
 
   useEffect(() => {
     axios.get("https://api.coingecko.com/api/v3/global").then((res) => {
@@ -38,15 +40,15 @@ export const GlobalHeader: FC = () => {
     <Container >
       <Row xs={"auto"} className="header_row">
       <Col className="header_col">
-          <GlobalHeaderComp title="Cryptos:" cryptodata={data.totalcrypto} />
-          <GlobalHeaderComp title="Exchanges:" cryptodata={data.markets} />
-          <GlobalHeaderComp title="Market Cap:" cryptodata={data.totalmarketcap} />
-          <GlobalHeaderComp title="24h Vol:" cryptodata={data.volume24H} />
+          <GlobalHeaderComp title="Cryptos:" cryptodata={data?.totalcrypto} />
+          <GlobalHeaderComp title="Exchanges:" cryptodata={data?.markets} />
+          <GlobalHeaderComp title="Market Cap:" cryptodata={data?.totalmarketcap} />
+          <GlobalHeaderComp title="24h Vol:" cryptodata={data?.volume24H} />
         </Col>
         <Col className="header_col">
           <GlobalHeaderComp title="Dominance:" />
-          <GlobalHeaderComp title="BTC:" cryptodata={data.btcdominance} />
-          <GlobalHeaderComp title="ETH:" cryptodata={data.ethdominance} />
+          <GlobalHeaderComp title="BTC:" cryptodata={data?.btcdominance} />
+          <GlobalHeaderComp title="ETH:" cryptodata={data?.ethdominance} />
         </Col>
       </Row>
     </Container>

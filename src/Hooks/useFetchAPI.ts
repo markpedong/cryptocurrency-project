@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 
 const useFetchAPI = (url: string) => {
-  const [crypto, setData] = useState(null);
+  const [data, setData] = useState(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
 
@@ -21,7 +21,7 @@ const useFetchAPI = (url: string) => {
       });
   }, [url]);
 
-  return { crypto, loading, error };
+  return { data, loading, error };
 };
 
 export default useFetchAPI;
