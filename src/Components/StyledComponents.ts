@@ -58,7 +58,35 @@ export const TopCoinsHeader = styled.p`
   max-width: 100%;
 `;
 
-export const GlobalSpanStyled = styled.span`
-  font-weight: 700;
-  margin-inline: 0.5rem;
+export const GlobalSpanStyled = styled.div`
+  display: flex;
+  align-items: baseline;
+  gap: 0rem;
+  padding-inline: 0.5rem;
+  font-size: 1rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  color: black;
+`;
+
+export const GlobalDescSpan = styled.div`
+  font-weight: 800;
+  margin-inline-start: 0.5rem;
+  display: flex;
+  align-items: baseline;
+
+  svg {
+    align-self: center;
+  }
+`;
+
+export const GlobalDesc = styled.p`
+  margin-block-end: 0;
+`;
+
+export const GlobalSpan = styled.span`
+  margin-block-end: 0;
+  font-weight: 800;
+  text-transform: uppercase;
+  color: rgba(0, 0, 0, 1);
 `;

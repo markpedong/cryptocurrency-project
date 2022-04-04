@@ -3,49 +3,41 @@ import numeral from "numeral";
 import { useEffect, useState } from "react";
 import { Container, Button, Collapse } from "react-bootstrap";
 import { RiArrowDownSFill, RiArrowUpSFill } from "react-icons/ri";
-import { GlobalMarketHeader } from "../../Components/StyledComponents";
+import {
+  GlobalMarketHeader,
+  GlobalSpanStyled,
+  GlobalDescSpan,
+  GlobalDesc,
+  GlobalSpan,
+} from "../../Components/StyledComponents";
 import "../../Styles/GlobalMarket.scss";
 
-type CryptoDetails = {
-  totalmarketcap: number;
-  totalvolume: number;
+type CryptoMarket = {
+  cryptomarketcap: number;
+  cryptovolume: number;
   marketcapchange: number;
   bitcoindominance: number;
-};
-
-type Defi = {
   defi_dominance: number;
-  defi_market_cap: number;
-  top_coin_defi_dominance: number;
-  top_coin_name: string;
-  trading_volume_24h: number;
-};
-
-type Bitcoin = {
-  usd: number;
+  coin_percentage: number;
+  coin: string;
+  defi_volume_24h: number;
+  bitcoin: number;
 };
 
 export const GlobalMarketChange = () => {
   const [open, setOpen] = useState(false);
-  // prettier-ignore
-  const [data, setData] = useState<CryptoDetails>({
-      totalmarketcap: "Loading...",
-      totalvolume: "Loading...",
-      marketcapchange: "Loading...",
-      bitcoindominance: "Loading...",
-  } as unknown as CryptoDetails);
 
-  const [defi, setDefi] = useState<Defi>({
+  const [crypto, setCrypto] = useState<CryptoMarket>({
+    cryptomarketcap: "Loading...",
+    cryptovolume: "Loading...",
+    marketcapchange: "Loading...",
+    bitcoindominance: "Loading...",
     defi_dominance: "Loading...",
-    defi_market_cap: "Loading...",
-    top_coin_defi_dominance: "Loading...",
-    top_coin_name: "Loading...",
-    trading_volume_24h: "Loading...",
-  } as unknown as Defi);
-
-  const [bitcoinprice, setBitcoinPrice] = useState<Bitcoin>({
-    usd: "Loading...",
-  } as unknown as Bitcoin);
+    coin_percentage: "Loading...",
+    coin: "Loading...",
+    defi_volume_24h: "Loading...",
+    bitcoin: "Loading...",
+  } as unknown as CryptoMarket);
 
   useEffect(() => {
     let endpoints = [
@@ -61,98 +53,71 @@ export const GlobalMarketChange = () => {
 
       // prettier-ignore
       const cryptoData = {
-        totalmarketcap: numeral(data.total_market_cap.usd).format("$ 0.00 a"),
-        totalvolume:  data.total_volume.usd,
-        marketcapchange: data.market_cap_change_percentage_24h_usd.toFixed(2),
-        bitcoindominance: data.market_cap_percentage.btc,
+        cryptomarketcap: data.total_market_cap.usd,
+        cryptovolume: data.total_volume.usd,
+        marketcapchange: +data.market_cap_change_percentage_24h_usd.toFixed(2),
+        bitcoindominance: data.market_cap_percentage.btc / 100,
+        defi_dominance: +defi_data.defi_dominance / 100,
+        coin_percentage: defi_data.top_coin_defi_dominance / 100,
+        coin: defi_data.top_coin_name,
+        defi_volume_24h: +defi_data.trading_volume_24h,
+        bitcoin: bitcoin.usd,
+        defi_volume_percentage:(+defi_data.trading_volume_24h / data.total_volume.usd) * 100, 
       };
 
-      // prettier-ignore
-      const defiData = {
-        defi_dominance: +defi_data.defi_dominance,
-        defi_market_cap: +defi_data.defi_market_cap,
-        top_coin_defi_dominance: defi_data.top_coin_defi_dominance,
-        top_coin_name: defi_data.top_coin_name,
-        trading_volume_24h: +defi_data.trading_volume_24h,
-      };
-
-      setData(cryptoData);
-      setDefi(defiData);
-      setBitcoinPrice(bitcoin);
-
-      console.log(bitcoinprice);
+      setCrypto(cryptoData);
     });
   }, []);
 
   return (
     <Container className="global_container">
       <GlobalMarketHeader>Today's Cryptocurrency Market Cap</GlobalMarketHeader>
+      {/* prettier-ignore */}
       <Container className="global_description_container">
         The global crypto market cap is
-        {data.marketcapchange > 0 ? (
-          <div className="global_span">
-            {data.totalmarketcap}.
-            {
-              <div className="global_desc_span">
-                <RiArrowUpSFill />
-                <p>{data.marketcapchange + "%"}</p>
-              </div>
-            }
-          </div>
-        ) : (
-          <div className="global_span">
-            {data.totalmarketcap}.
-            {
-              <div className="global_desc_span" style={{ color: "#ea3943" }}>
-                <RiArrowDownSFill />
-                <p>{data.marketcapchange + "%"}</p>
-              </div>
-            }
-          </div>
-        )}
-        {data.marketcapchange > 0 ? "increase" : "decrease"}, over the last day.
-        <button
-          className="readmore_btn"
-          onClick={() => {
-            setOpen(!open);
-          }}
-          aria-controls="collase_container"
-          aria-expanded={open}
-        >
-          read more
+        <GlobalSpanStyled>
+          {numeral(crypto.cryptomarketcap).format("($ 0.00 a)")}.
+          {
+            <GlobalDescSpan style={crypto.marketcapchange > 0 ? { color: "#16c784"} : { color: "#ea3943"} }>
+              {crypto.marketcapchange > 0 ? < RiArrowUpSFill /> : < RiArrowDownSFill />}
+              <GlobalDesc>{crypto.marketcapchange + "%"}</GlobalDesc>
+            </GlobalDescSpan>
+          }
+        </GlobalSpanStyled>
+        {crypto.marketcapchange > 0 ? "increase" : "decrease"}, over the last day.
+        <button className="readmore_btn" aria-controls="collase_container" aria-expanded={open}  
+          onClick={() => { setOpen(!open)}}> read more
         </button>
       </Container>
       <Collapse in={open}>
         <Container id="collase_container">
-          <p>
-            The total crypto market volume over the last 24 hours is
-            {<span>{numeral(data.totalvolume).format("$ 0.00 a")}</span>}. The
-            total volume in DeFi is currently
-            {numeral(defi.trading_volume_24h).format("$ 0.00 a")}, which is
-            {numeral(defi.trading_volume_24h / data.totalvolume).format(
-              "0.00%"
-            )}
-            of the total crypto market 24-hour volume. The total volume in DeFi
-            is currently {numeral(defi.trading_volume_24h).format("$ 0.00 a")}{" "}
-            for 24-hour volume and the total market cap of DeFi is{" "}
-            {numeral(defi.trading_volume_24h).format("$ 0.00 a")} , DeFi
-            Dominance is {defi.defi_dominance.toString().slice(0, 5) + "%"}, and
-            the Top Coin in DeFi is Currently {defi.top_coin_name} with{" "}
-            {defi.top_coin_defi_dominance.toString().slice(0, 5) + "%"} of
-            dominance.
-          </p>
-          <p>
+          {/* prettier-ignore */}
+          <GlobalDesc>
+            The total crypto market volume over the last 24 hours is{" "}
+            {<GlobalSpan>{numeral(crypto.cryptovolume).format("($ 0.00 a)")}</GlobalSpan>}
+            . The total volume in DeFi is currently{" "}
+            {<GlobalSpan> {numeral(crypto.defi_volume_24h).format("($ 0.00 a)")}</GlobalSpan>}
+            , which is{" "}
+            {<GlobalSpan>{numeral(crypto.defi_volume_24h / crypto.cryptovolume).format("0.00%")}</GlobalSpan>}{" "}
+            of the total crypto market 24-hour volume. DeFi Dominance is{" "}
+            {<GlobalSpan>{numeral(crypto.defi_dominance).format("0.00 %")}{" "}</GlobalSpan>}
+            , and the Top Coin in DeFi is Currently{" "}
+            {<GlobalSpan>{crypto.coin}</GlobalSpan>} with{" "}
+            {<GlobalSpan> {numeral(crypto.coin_percentage).format("0.00 %")}</GlobalSpan>}{" "}
+            of dominance.
+          </GlobalDesc>
+          <GlobalDesc className="mt-3">
             Bitcoin's price is currently{" "}
-            {numeral(bitcoinprice.usd).format("$0,0")}.
-          </p>
-          <p>
+            <GlobalSpan>{numeral(crypto.bitcoin).format("$0,0")}.</GlobalSpan>
+          </GlobalDesc>
+          <GlobalDesc>
             Bitcoin’s dominance is currently{" "}
-            {data.bitcoindominance.toString().slice(0, 5)}%.
-          </p>
+            <GlobalSpan>
+              {numeral(crypto.bitcoindominance).format("0.00%")}
+            </GlobalSpan>
+          </GlobalDesc>
         </Container>
       </Collapse>
     </Container>
   );
 };
-
-// numeral(defi.trading_volume_24h / data.totalvolume).format('0.00%')
