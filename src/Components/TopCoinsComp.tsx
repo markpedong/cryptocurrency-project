@@ -1,5 +1,5 @@
 import axios from "axios";
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import "../Styles/TopCoins.scss";
 import { MoreSpan, TopCoinsHeader } from "./StyledComponents";
 import { TopCoinsProps, TopCoins } from "../Types/Type";
