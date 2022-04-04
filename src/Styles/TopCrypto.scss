@@ -1,14 +1,15 @@
 .topcrypto_container {
-  padding-block: 1rem;
-  padding-block-end: 1.5rem;
+  margin-block: 1rem;
+  margin-block-end: 1.5rem;
 }
 
 .crypto_container {
   background-color: white;
+  box-shadow: var(--shadow-2);
   border-radius: var(--radius-4);
   display: flex !important;
   align-items: center;
-  padding: 0.5rem;
+  margin-block-end: 1rem;
   height: 15rem;
 }
 
@@ -16,7 +17,6 @@
   width: 50%;
   height: 2.5rem;
   align-self: center;
-  margin-inline: 1rem;
 }
 
 .crypto_description .container {

@@ -21,3 +21,32 @@ export type TopCrypto = {
   symbol: string;
   thumb: string;
 };
+
+export type CryptoMarket = {
+  cryptomarketcap: number;
+  cryptovolume: number;
+  marketcapchange: number;
+  bitcoindominance: number;
+  defi_dominance: number;
+  coin_percentage: number;
+  coin: string;
+  defi_volume_24h: number;
+  bitcoin: number;
+};
+
+export type TopCoinsProps = {
+  url: string;
+  title: string;
+};
+
+export type TopCoins = {
+  coins: {
+    item: {
+      id: string;
+      name: string;
+      price_btc: number;
+      symbol: string;
+      thumb: string;
+    };
+  }[];
+};

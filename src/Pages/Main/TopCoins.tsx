@@ -9,22 +9,7 @@ const TopCoins = () => {
         <Col>
           <TopCoinsComp
             url="https://api.coingecko.com/api/v3/search/trending"
-            btcurl="https://api.coingecko.com/api/v3/simple/price?ids=bitcoin&vs_currencies=usd"
-            title="🔥Trending Coins"
-          />
-        </Col>
-        <Col>
-          <TopCoinsComp
-            url="https://api.coingecko.com/api/v3/search/trending"
-            btcurl="https://api.coingecko.com/api/v3/simple/price?ids=bitcoin&vs_currencies=usd"
-            title="🔥Trending Coins"
-          />
-        </Col>
-        <Col>
-          <TopCoinsComp
-            url="https://api.coingecko.com/api/v3/search/trending"
-            btcurl="https://api.coingecko.com/api/v3/simple/price?ids=bitcoin&vs_currencies=usd"
-            title="🔥Trending Coins"
+            title="🔥Trending"
           />
         </Col>
       </Row>

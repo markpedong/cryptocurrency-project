@@ -54,8 +54,24 @@ export const GlobalMarketDesc = styled.p`
 export const TopCoinsHeader = styled.p`
   color: var(--gray-9);
   font-size: 1.2rem;
-  font-weight: 900;
+  font-weight: 800;
   max-width: 100%;
+  margin-block-end: 0;
+  padding-block-end: 1rem;
+  font-family: "Poppins", sans-serif;
+`;
+
+export const MoreSpan = styled.p`
+  align-self: center;
+  justify-self: end;
+  font-family: "Montserrat", sans-serif;
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  text-decoration: underline;
+  color: blue;
+  margin-block-end: 0;
+  padding-block-end: 1rem;
 `;
 
 export const GlobalSpanStyled = styled.div`
@@ -89,4 +105,12 @@ export const GlobalSpan = styled.span`
   font-weight: 800;
   text-transform: uppercase;
   color: rgba(0, 0, 0, 1);
+`;
+
+export const CryptoHeader = styled.p`
+  font-family: "Inter", sans-serif;
+  margin-block-end: 0;
+  text-align: center;
+  font-weight: 700;
+  font-size: 0.9rem;
 `;

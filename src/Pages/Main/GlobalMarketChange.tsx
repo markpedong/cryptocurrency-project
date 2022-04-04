@@ -1,28 +1,17 @@
 import axios from "axios";
 import numeral from "numeral";
 import { useEffect, useState } from "react";
-import { Container, Button, Collapse } from "react-bootstrap";
+import { Collapse, Container } from "react-bootstrap";
 import { RiArrowDownSFill, RiArrowUpSFill } from "react-icons/ri";
 import {
-  GlobalMarketHeader,
-  GlobalSpanStyled,
-  GlobalDescSpan,
   GlobalDesc,
+  GlobalDescSpan,
+  GlobalMarketHeader,
   GlobalSpan,
+  GlobalSpanStyled,
 } from "../../Components/StyledComponents";
 import "../../Styles/GlobalMarket.scss";
-
-type CryptoMarket = {
-  cryptomarketcap: number;
-  cryptovolume: number;
-  marketcapchange: number;
-  bitcoindominance: number;
-  defi_dominance: number;
-  coin_percentage: number;
-  coin: string;
-  defi_volume_24h: number;
-  bitcoin: number;
-};
+import { CryptoMarket } from "../../Types/Type";
 
 export const GlobalMarketChange = () => {
   const [open, setOpen] = useState(false);
