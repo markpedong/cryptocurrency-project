@@ -1,6 +1,7 @@
 import { GlobalHeaderStyled, GlobalDescStyled } from "./StyledComponents";
 import { Col } from "react-bootstrap";
 import { IGlobalHeader } from "../Types/Interface";
+import "../Styles/GlobalHeader.scss";
 
 export const GlobalHeaderComp = ({ title, cryptodata }: IGlobalHeader) => {
   return (

@@ -1,9 +1,10 @@
 import { FC } from "react";
 import { Container, Form, FormControl, Nav, Navbar } from "react-bootstrap";
 import { FaSearch } from "react-icons/fa/";
-import "../../Styles/Navbar.scss";
+import "../Styles/Navbar.scss";
+import { Link } from "react-router-dom";
 
-const logoSrc = require("../../Images/logo.png");
+const logoSrc = require("../Images/logo.png");
 
 export const NavbarSec: FC = () => {
   return (
@@ -19,10 +20,11 @@ export const NavbarSec: FC = () => {
           <span className="toggler-icon bottom-bar" />
         </Navbar.Toggle>
         <Navbar.Collapse id="basic-navbar-nav">
+          {/* prettier-ignore */}
           <Nav className="ms-auto">
-            <Nav.Link>Coins</Nav.Link>
-            <Nav.Link>Exchanges</Nav.Link>
-            <Nav.Link>NFT</Nav.Link>
+            <Link className="nav-link" to="/">Coins</Link>
+            <Link className="nav-link" to="/exchanges">Exchanges</Link>
+            <Link className="nav-link" to="/">NFT</Link>
             <Form className="d-flex search_container">
               <FormControl
                 type="search"

@@ -2,8 +2,8 @@ import axios from "axios";
 import numeral from "numeral";
 import { FC, useEffect, useState } from "react";
 import { Col, Container, Row } from "react-bootstrap";
-import { GlobalHeaderComp } from "../../Components/GlobalHeaderComp";
-import { CryptoDetails } from "../../Types/Type";
+import { GlobalHeaderComp } from "../Components/GlobalHeaderComp";
+import { CryptoDetails } from "../Types/Type";
 
 export const GlobalHeader: FC = () => {
   // prettier-ignore
@@ -45,7 +45,7 @@ export const GlobalHeader: FC = () => {
 
   return (
     // prettier-ignore
-    <Container >
+    <Container className="header_main_container">
       <Row xs={"auto"} className="header_row">
       <Col className="header_col">
           <GlobalHeaderComp title="Cryptos:" cryptodata={data?.totalcrypto} />
@@ -62,18 +62,3 @@ export const GlobalHeader: FC = () => {
     </Container>
   );
 };
-
-// axios.get("https://api.coingecko.com/api/v3/global").then((res) => {
-//   const { data } = res.data;
-
-//   // prettier-ignore
-//   const cryptoData = {
-//       totalcrypto: data.active_cryptocurrencies,
-//       markets: data.markets,
-//       totalmarketcap: numeral(data.total_market_cap.usd).format("$0,0.00"),
-//       volume24H: numeral(data.total_volume.usd).format("$0,0.00"),
-//       btcdominance: parseFloat( data.market_cap_percentage.btc).toFixed(2) + "%",
-//       ethdominance: parseFloat( data.market_cap_percentage.eth).toFixed(2) + "%",
-//     };
-
-//   setData(cryptoData);
