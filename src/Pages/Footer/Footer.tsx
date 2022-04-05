@@ -3,7 +3,7 @@ import { Col, Row, Container } from "react-bootstrap";
 import "../../Styles/Footer.scss";
 import coingecko from "../../Images/coingecko.svg";
 import coinmarketcap from "../../Images/coinmarketcap.svg";
-
+import coinpaprika from "../../Images/coinpaprika.png";
 export const Footer: FC = () => {
   const logoSrc = require("../../Images/logo.png");
 
@@ -53,7 +53,10 @@ export const Footer: FC = () => {
             <Row className="row-cols-2">
               <Col className="cg_cmc">
                 <p>Powered by:</p>
-                <img src={coingecko} />
+                <div className="poweredby_container">
+                  <img src={coingecko} />
+                  <img src={coinpaprika} />
+                </div>
               </Col>
               <Col className="cg_cmc">
                 <p>Designed: </p>

@@ -1,0 +1,31 @@
+.crypto_score {
+  background-color: #16c784;
+  padding-inline: 0.5rem;
+  padding-block: 0.2rem;
+  font-size: 0.9rem;
+  color: white;
+  font-family: "Inter", sans-serif;
+  border-radius: var(--radius-2);
+  margin-block-end: 0;
+}
+
+.fiat_supported {
+  display: block;
+}
+
+.fiat_more_container,
+.fiat_container {
+  padding: 0;
+}
+.exchange_img {
+  border-radius: var(--radius-round);
+}
+
+.fiat_more_container :is(p) {
+  margin-block-end: 0;
+  text-transform: lowercase;
+  font-family: "Inter", sans-serif;
+  font-size: 0.9rem;
+  opacity: 0.8;
+  font-weight: 700;
+}

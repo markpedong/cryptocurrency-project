@@ -71,4 +71,10 @@
 
 .cg_cmc :is(img) {
   height: 1.5rem;
+  justify-self: flex-end;
+}
+
+.poweredby_container :is(img) {
+  display: ruby-base;
+  margin-block-end: 0.2rem;
 }

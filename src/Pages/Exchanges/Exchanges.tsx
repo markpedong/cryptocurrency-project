@@ -1,7 +1,7 @@
 import { FC, useState } from "react";
 import { Container, Row, Col, Collapse, Table } from "react-bootstrap";
-
 import { RiArrowDownSFill, RiMore2Fill } from "react-icons/ri";
+import "../../Styles/Exchanges.scss";
 
 export const Exchanges: FC = () => {
   const [open, setOpen] = useState(false);
@@ -49,39 +49,85 @@ export const Exchanges: FC = () => {
                     <p className="header name_header">Name</p>
                   </th>
                   <th>
-                    <p className="header_end">Price</p>
+                    <p className="header_end">Trust Score</p>
                   </th>
                   <th>
-                    <p className="header_end d-none d-xl-block">Price 24h%</p>
-                    <p className="header_end d-xl-none">24h%</p>
+                    <p className="header_end">Volume (24h)</p>
                   </th>
                   <th>
-                    <p className="header_end d-none d-xl-block">Market Cap</p>
-                    <p className="header_end d-xl-none">M. Cap</p>
+                    <p className="header_end">Volume (7d)</p>
                   </th>
                   <th>
-                    <p className="header_end d-none d-xl-block">M.Cap 24h%</p>
-                    <p className="header_end d-xl-none">24h%</p>
+                    <p className="header_end">#Markets</p>
                   </th>
                   <th>
-                    <p className="header_end">Volume(24h)</p>
+                    <p className="header_end">#Coins</p>
                   </th>
                   <th>
-                    <p className="header_end d-none d-xl-block ">
-                      Circulating Supply
-                    </p>
-                    <p className="header_end d-xl-none c-supply">C. Supply</p>
-                  </th>
-                  <th>
-                    <p className="header_end m-supply">Max Supply</p>
+                    <p className="header_end">Fiat Supported</p>
                   </th>
                   <th></th>
                 </tr>
               </thead>
-              <tbody></tbody>
+              <tbody>
+                <tr className="crypto_main">
+                  <td></td>
+                  <td>
+                    <div className="justify-content-start">
+                      <p className="crypto_number">1</p>
+                    </div>
+                  </td>
+                  <td>
+                    <div className="justify-content-start">
+                      <img
+                        className="exchange_img"
+                        src="https://assets.coingecko.com/markets/images/52/small/binance.jpg?1519353250"
+                      />
+                      <p className="crypto_name">Binance</p>
+                    </div>
+                  </td>
+                  <td>
+                    <div className="justify-content-end">
+                      <p className="crypto_score">9.9</p>
+                    </div>
+                  </td>
+                  <td>
+                    <div className="justify-content-end text-uppercase">
+                      <p className="crypto_digits">$21,343,854,585</p>
+                    </div>
+                  </td>
+                  <td>
+                    <div className="justify-content-end text-uppercase">
+                      <p className="crypto_digits">$153,060,819,000</p>
+                    </div>
+                  </td>
+                  <td>
+                    <div className="justify-content-end text-uppercase">
+                      <p className="crypto_digits">253</p>
+                    </div>
+                  </td>
+                  <td>
+                    <div className="justify-content-end text-uppercase">
+                      <p className="crypto_digits">500</p>
+                    </div>
+                  </td>
+                  <td>
+                    <div className="justify-content-end text-uppercase fiat_supported">
+                      <div className="justify-content-end fiat_container">
+                        <p className="crypto_digits">AED,</p>
+                        <p className="crypto_digits">ARS,</p>
+                        <p className="crypto_digits">USD</p>
+                      </div>
+                      <div className="fiat_more_container justify-content-end">
+                        <p>and +43 more</p>
+                      </div>
+                    </div>
+                  </td>
+                  <td></td>
+                </tr>
+              </tbody>
             </Table>
           </Container>
-          ;
         </Col>
       </Row>
     </Container>
