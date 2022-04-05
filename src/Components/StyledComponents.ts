@@ -1,4 +1,3 @@
-import "../Styles/Font.scss";
 import styled from "styled-components";
 
 export const ContainerStyled = styled.div`
@@ -113,11 +112,4 @@ export const CryptoHeader = styled.p`
   text-align: center;
   font-weight: 800;
   font-size: 0.9rem;
-`;
-
-export const CDigits = styled.p`
-  margin-block-end: 0;
-  font-size: 0.9rem;
-  font-weight: 900;
-  font-family: "Inter", sans-serif;
 `;

@@ -29,33 +29,42 @@ export const GlobalMarketChange = () => {
   } as unknown as CryptoMarket);
 
   useEffect(() => {
-    let endpoints = [
-      "https://api.coingecko.com/api/v3/global",
-      "https://api.coingecko.com/api/v3/global/decentralized_finance_defi",
-      "https://api.coingecko.com/api/v3/simple/price?ids=bitcoin&vs_currencies=usd",
-    ];
+    const fetchData = async () => {
+      try {
+        let endpoints = [
+          "https://api.coingecko.com/api/v3/global",
+          "https://api.coingecko.com/api/v3/global/decentralized_finance_defi",
+          "https://api.coingecko.com/api/v3/simple/price?ids=bitcoin&vs_currencies=usd",
+        ];
 
-    axios.all(endpoints.map((endpoint) => axios.get(endpoint))).then((res) => {
-      const { data } = res[0].data;
-      const { data: defi_data } = res[1].data;
-      const { bitcoin } = res[2].data;
+        await axios
+          .all(endpoints.map((endpoint) => axios.get(endpoint)))
+          .then((res) => {
+            const { data } = res[0].data;
+            const { data: defi_data } = res[1].data;
+            const { bitcoin } = res[2].data;
 
-      // prettier-ignore
-      const cryptoData = {
-        cryptomarketcap: data.total_market_cap.usd,
-        cryptovolume: data.total_volume.usd,
-        marketcapchange: +data.market_cap_change_percentage_24h_usd.toFixed(2),
-        bitcoindominance: data.market_cap_percentage.btc / 100,
-        defi_dominance: +defi_data.defi_dominance / 100,
-        coin_percentage: defi_data.top_coin_defi_dominance / 100,
-        coin: defi_data.top_coin_name,
-        defi_volume_24h: +defi_data.trading_volume_24h,
-        bitcoin: bitcoin.usd,
-        defi_volume_percentage:(+defi_data.trading_volume_24h / data.total_volume.usd) * 100, 
-      };
+            // prettier-ignore
+            const cryptoData = {
+          cryptomarketcap: data.total_market_cap.usd,
+          cryptovolume: data.total_volume.usd,
+          marketcapchange: +data.market_cap_change_percentage_24h_usd.toFixed(2),
+          bitcoindominance: data.market_cap_percentage.btc / 100,
+          defi_dominance: +defi_data.defi_dominance / 100,
+          coin_percentage: defi_data.top_coin_defi_dominance / 100,
+          coin: defi_data.top_coin_name,
+          defi_volume_24h: +defi_data.trading_volume_24h,
+          bitcoin: bitcoin.usd,
+          defi_volume_percentage:(+defi_data.trading_volume_24h / data.total_volume.usd) * 100, 
+        };
 
-      setCrypto(cryptoData);
-    });
+            setCrypto(cryptoData);
+          });
+      } catch (err) {
+        console.error(err);
+      }
+    };
+    fetchData();
   }, []);
 
   return (

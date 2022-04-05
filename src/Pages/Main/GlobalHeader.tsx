@@ -3,7 +3,6 @@ import numeral from "numeral";
 import { FC, useEffect, useState } from "react";
 import { Col, Container, Row } from "react-bootstrap";
 import { GlobalHeaderComp } from "../../Components/GlobalHeaderComp";
-import useFetchAPI from "../../Hooks/useFetchAPI";
 import { CryptoDetails } from "../../Types/Type";
 
 export const GlobalHeader: FC = () => {
@@ -18,21 +17,30 @@ export const GlobalHeader: FC = () => {
     } as CryptoDetails);
 
   useEffect(() => {
-    axios.get("https://api.coingecko.com/api/v3/global").then((res) => {
-      const { data } = res.data;
+    const fetchData = async () => {
+      try {
+        await axios
+          .get("https://api.coingecko.com/api/v3/global")
+          .then((res) => {
+            const { data } = res.data;
 
-      // prettier-ignore
-      const cryptoData = {
-          totalcrypto: data.active_cryptocurrencies,
-          markets: data.markets,
-          totalmarketcap: numeral(data.total_market_cap.usd).format("$0,0.00"),
-          volume24H: numeral(data.total_volume.usd).format("$0,0.00"),
-          btcdominance: parseFloat( data.market_cap_percentage.btc).toFixed(2) + "%",
-          ethdominance: parseFloat( data.market_cap_percentage.eth).toFixed(2) + "%",
-        };
+            // prettier-ignore
+            const cryptoData = {
+                  totalcrypto: data.active_cryptocurrencies,
+                  markets: data.markets,
+                  totalmarketcap: numeral(data.total_market_cap.usd).format("$0,0.00"),
+                  volume24H: numeral(data.total_volume.usd).format("$0,0.00"),
+                  btcdominance: parseFloat( data.market_cap_percentage.btc).toFixed(2) + "%",
+                  ethdominance: parseFloat( data.market_cap_percentage.eth).toFixed(2) + "%",
+                };
 
-      setData(cryptoData);
-    });
+            setData(cryptoData);
+          });
+      } catch (err) {
+        console.error(err);
+      }
+    };
+    fetchData();
   }, []);
 
   return (
@@ -54,3 +62,18 @@ export const GlobalHeader: FC = () => {
     </Container>
   );
 };
+
+// axios.get("https://api.coingecko.com/api/v3/global").then((res) => {
+//   const { data } = res.data;
+
+//   // prettier-ignore
+//   const cryptoData = {
+//       totalcrypto: data.active_cryptocurrencies,
+//       markets: data.markets,
+//       totalmarketcap: numeral(data.total_market_cap.usd).format("$0,0.00"),
+//       volume24H: numeral(data.total_volume.usd).format("$0,0.00"),
+//       btcdominance: parseFloat( data.market_cap_percentage.btc).toFixed(2) + "%",
+//       ethdominance: parseFloat( data.market_cap_percentage.eth).toFixed(2) + "%",
+//     };
+
+//   setData(cryptoData);
