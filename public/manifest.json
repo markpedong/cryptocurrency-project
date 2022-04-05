@@ -1,7 +1,8 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "BLOCKDETAILS",
+  "name": "Created this website using CoinGecko API with CoinmarketCap Design",
   "start_url": ".",
+  "icons": ["/src/Images/logo.png"],
   "display": "standalone",
   "theme_color": "#000000",
   "background_color": "#ffffff"

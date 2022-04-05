@@ -59,7 +59,7 @@ div :is(img) {
 .crypto_digits {
   margin-block-end: 0;
   font-size: 0.9rem;
-  font-weight: 600;
+  font-weight: 700;
   font-family: "Inter", sans-serif;
 }
 
@@ -87,12 +87,6 @@ div :is(img) {
 }
 
 @media screen and (max-width: 1199px) {
-  .crypto_name,
-  .crypto_sym,
-  .crypto_number {
-    font-size: 0.8rem;
-  }
-
   .header_end {
     text-align: end;
   }
