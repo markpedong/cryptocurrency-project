@@ -115,31 +115,9 @@ export const CryptoHeader = styled.p`
   font-size: 0.9rem;
 `;
 
-export const Styles = styled.div`
-  padding: 1rem;
-
-  table {
-    border-spacing: 0;
-    border: 1px solid black;
-
-    tr {
-      :last-child {
-        td {
-          border-bottom: 0;
-        }
-      }
-    }
-
-    th,
-    td {
-      margin: 0;
-      padding: 0.5rem;
-      border-bottom: 1px solid black;
-      border-right: 1px solid black;
-
-      :last-child {
-        border-right: 0;
-      }
-    }
-  }
+export const CDigits = styled.p`
+  margin-block-end: 0;
+  font-size: 0.9rem;
+  font-weight: 900;
+  font-family: "Inter", sans-serif;
 `;

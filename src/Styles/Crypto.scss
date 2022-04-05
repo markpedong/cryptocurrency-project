@@ -1,27 +1,67 @@
-.main_crypto {
-  margin-block-start: 2rem;
-  padding: 1rem;
+.table_main {
+  padding-block: 2rem;
 }
-#header_col {
-  padding: 0;
+
+.table_container {
+  box-shadow: var(--shadow-2);
+  background-color: white;
+  border-radius: var(--radius-1);
 }
 
 .thead {
-  border-block: rgba(0, 0, 0, 0.3) solid 1px;
+  border-block-end: rgba(0, 0, 0, 0.3) solid 1px;
 }
 
 .header {
+  margin-block-end: 0;
+  font-family: "Inter", sans-serif;
+  font-size: 0.8rem;
+  font-weight: 800;
   padding-block: 0.5rem;
-
-  gap: 0.5rem;
-}
-.breakword {
-  width: 100px;
-}
-.wordbreak {
-  word-break: break-all;
 }
 
-// display: flex;
-// justify-content: center !important;
-// align-items: center;
+// .breakword {
+//   inline-size: 15rem;
+// }
+// .wordbreak {
+//   word-break: break-all;
+//   max-inline-size: 100%;
+// }
+
+.crypto_main :is(td) {
+  border-block: solid 1px rgba(0, 0, 0, 0.3);
+  vertical-align: middle;
+}
+
+td :is(div) {
+  padding-block: 0.7rem;
+  display: flex;
+  align-items: center;
+}
+
+div :is(img) {
+  height: 1.5rem;
+}
+
+.crypto_number {
+  justify-self: flex-start;
+}
+
+.crypto_name,
+.crypto_sym,
+.crypto_number {
+  margin-block-end: 0;
+  font-size: 0.9rem;
+  font-weight: 900;
+  font-family: "Inter", sans-serif;
+}
+
+.crypto_name,
+.crypto_sym {
+  margin-inline-start: 0.5rem;
+}
+
+.crypto_sym,
+.crypto_number {
+  opacity: 0.5;
+}
