@@ -3,8 +3,8 @@ import "./Styles/Main.scss";
 import { Footer } from "./Pages/Footer/Footer";
 import { Routes, Route, Link } from "react-router-dom";
 import { Exchanges } from "./Pages/Exchanges/Exchanges";
-import { GlobalHeader } from "./Pages/GlobalHeader";
-import { NavbarSec } from "./Pages/Navbar";
+import { GlobalHeader } from "./Pages/Crypto/GlobalHeader";
+import { NavbarSec } from "./Pages/Crypto/Navbar";
 import { BrowserRouter } from "react-router-dom";
 
 function App() {

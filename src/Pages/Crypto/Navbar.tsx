@@ -1,10 +1,10 @@
 import { FC } from "react";
 import { Container, Form, FormControl, Nav, Navbar } from "react-bootstrap";
 import { FaSearch } from "react-icons/fa/";
-import "../Styles/Navbar.scss";
+import "../../Styles/Navbar.scss";
 import { Link } from "react-router-dom";
 
-const logoSrc = require("../Images/logo.png");
+const logoSrc = require("../../Images/logo.png");
 
 export const NavbarSec: FC = () => {
   return (

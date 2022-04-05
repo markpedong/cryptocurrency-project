@@ -2,8 +2,8 @@ import axios from "axios";
 import numeral from "numeral";
 import { FC, useEffect, useState } from "react";
 import { Col, Container, Row } from "react-bootstrap";
-import { GlobalHeaderComp } from "../Components/GlobalHeaderComp";
-import { CryptoDetails } from "../Types/Type";
+import { GlobalHeaderComp } from "../../Components/GlobalHeaderComp";
+import { CryptoDetails } from "../../Types/Type";
 
 export const GlobalHeader: FC = () => {
   // prettier-ignore
