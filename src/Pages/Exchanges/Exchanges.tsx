@@ -9,30 +9,37 @@ export const Exchanges: FC = () => {
   return (
     <Container>
       <Row>
-        <Col>
-          <p> Top Cryptocurrency Spot Exchanges</p>
-
-          <p>
-            CoinMarketCap ranks and scores exchanges based on traffic,
-            liquidity, trading volumes, and confidence in the legitimacy of
-            trading volumes reported.{" "}
-            <button
-              className="readmore_btn"
-              aria-controls="collase_container"
-              aria-expanded={open}
-              onClick={() => {
-                setOpen(!open);
-              }}
-            >
+        <Col xs={12}>
+          <Container className="currency_exchange_container">
+            <p className="exchange_header">
               {" "}
-              read more
-            </button>
-          </p>
-        </Col>
-        <Col>
+              Top Cryptocurrency Spot Exchanges
+            </p>
+
+            <p className="exchange_desc">
+              BlockDetails get the data from certain API including
+              CoinmarketCap, Coingecko and Coinpaprika. It ranks and scores
+              exchanges based on traffic, liquidity, trading volumes, and
+              confidence in the legitimacy of trading volumes reported.{" "}
+              <button
+                className="readmore_btn"
+                aria-controls="collase_container"
+                aria-expanded={open}
+                onClick={() => {
+                  setOpen(!open);
+                }}
+              >
+                {" "}
+                read more
+              </button>
+            </p>
+          </Container>
           <Collapse in={open}>
             <Container id="collase_container">
-              <p>test</p>
+              <p>
+                BlockDetails track 306 spot exchanges with a total 24h volume of
+                $268.91B.
+              </p>
             </Container>
           </Collapse>
         </Col>

@@ -39,10 +39,10 @@ export const Footer: FC = () => {
             <Col className="subcontent">
               <p>Donation</p>
               <Container className="subcontent_container">
-                <p>Bitcoin:</p>
+                <p>Bitcoin</p>
                 <p>USDT</p>
                 <p>BNB</p>
-                <p>Other:</p>
+                <p>Other</p>
               </Container>
             </Col>
           </Col>

@@ -9,6 +9,23 @@
   margin-block-end: 0;
 }
 
+.currency_exchange_container {
+  margin-block-start: 1rem;
+}
+
+.currency_exchange_container :is(p) {
+  font-family: "Poppins", sans-serif;
+}
+
+.exchange_header {
+  font-size: 1.5rem;
+  font-weight: 800;
+}
+
+.exchange_desc {
+  font-size: 1rem;
+}
+
 .fiat_supported {
   display: block;
 }
