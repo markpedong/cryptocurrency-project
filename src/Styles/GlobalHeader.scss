@@ -1,0 +1,17 @@
+.header_row {
+  justify-content: center;
+}
+
+.header_col {
+  display: flex;
+}
+
+.header_container {
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  font-family: "Inter", sans-serif;
+  padding-block: 0.3rem;
+  font-size: 0.8rem;
+  margin-inline: 1rem;
+}

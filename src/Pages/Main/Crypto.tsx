@@ -3,115 +3,199 @@ import { useEffect, useState, useMemo } from "react";
 import { Container, Table } from "react-bootstrap";
 import "../../Styles/Crypto.scss";
 import { RiArrowDownSFill, RiArrowUpSFill, RiMore2Fill } from "react-icons/ri";
-import { CDigits } from "../../Components/StyledComponents";
+import { TCryptoMain } from "../../Types/Interface";
+import numeral from "numeral";
 export const Crypto = () => {
-  const [crypto, setCrypto] = useState([]);
+  const [cryptoData, setCrypto] = useState<TCryptoMain[]>([]);
 
   useEffect(() => {
-    axios
-      .get(
-        "https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=100&page=1&sparkline=false"
-      )
-      .then((res) => {
-        setCrypto(res.data);
-      });
+    const fetchData = async () => {
+      try {
+        await axios
+          .get(
+            "https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=100&page=1&sparkline=false"
+          )
+          .then((res) => {
+            setCrypto(res.data);
+          });
+      } catch (err) {
+        console.error(err);
+      }
+    };
+    fetchData();
   }, []);
 
-  console.log(crypto);
   return (
     <Container className="table_main">
       <Table borderless className="table_container">
         <thead className="thead">
+          {/* prettier-ignore */}
           <tr className="tr_container">
-            <th>
-              <p className="header"></p>
-            </th>
+            <th></th>
             <th>
               <p className="header">#</p>
             </th>
             <th>
-              <p className="header">Name</p>
+              <p className="header name_header">Name</p>
             </th>
             <th>
-              <p className="header text-end">Price</p>
+              <p className="header_end">Price</p>
             </th>
             <th>
-              <p className="header text-end">Price 24h%</p>
+              <p className="header_end d-none d-xl-block">Price 24h%</p>
+              <p className="header_end d-xl-none">24h%</p>
             </th>
             <th>
-              <p className="header text-end">Market Cap</p>
+              <p className="header_end d-none d-xl-block">Market Cap</p>
+              <p className="header_end d-xl-none">M. Cap</p>
             </th>
             <th>
-              <p className="header text-end">M.Cap 24h%</p>
+              <p className="header_end d-none d-xl-block">M.Cap 24h%</p>
+              <p className="header_end d-xl-none">24h%</p>
             </th>
             <th>
-              <p className="header text-end">Volume(24h)</p>
+              <p className="header_end">Volume(24h)</p>
             </th>
             <th>
-              <p className="header text-end">Circulating Supply</p>
+              <p className="header_end d-none d-xl-block ">Circulating Supply</p>
+              <p className="header_end d-xl-none c-supply">C. Supply</p>
             </th>
             <th>
-              <p className="header text-end">Max Supply</p>
+              <p className="header_end m-supply">Max Supply</p>
             </th>
             <th></th>
           </tr>
         </thead>
         <tbody>
-          <tr className="crypto_main">
-            <td></td>
-            <td>
-              <div className="justify-content-start">
-                <p className="crypto_number">1</p>
-              </div>
-            </td>
-            <td>
-              <div className="justify-content-start">
-                <img src="https://assets.coingecko.com/coins/images/1/large/bitcoin.png?1547033579" />
-                <p className="crypto_name">Bitcoin</p>
-                <p className="crypto_sym">BTC</p>
-              </div>
-            </td>
-            <td>
-              <div className="justify-content-end">
-                <CDigits>$46,658.38</CDigits>
-              </div>
-            </td>
-            <td>
-              <div className="justify-content-end" style={{ color: "#16c784" }}>
-                <RiArrowUpSFill />
-                <CDigits>1.28%</CDigits>
-              </div>
-            </td>
-            <td>
-              <div className="justify-content-end">
-                <CDigits>$885,633,866,521</CDigits>
-              </div>
-            </td>
-            <td>
-              <div className="justify-content-end" style={{ color: "#16c784" }}>
-                <RiArrowUpSFill />
-                <CDigits>1.28%</CDigits>
-              </div>
-            </td>
-            <td>
-              <div className="justify-content-end">
-                <CDigits>$31,184,248,479</CDigits>
-              </div>
-            </td>
-            <td>
-              <div className="justify-content-end">
-                <CDigits>19,003,050 BTC</CDigits>
-              </div>
-            </td>
-            <td>
-              <div className="justify-content-end">
-                <CDigits>21,000,000 BTC</CDigits>
-              </div>
-            </td>
-            <td>
-              <RiMore2Fill />
-            </td>
-          </tr>
+          {cryptoData.map((coin, index) => {
+            const crypto = {
+              csupply: numeral(coin.circulating_supply).format("0.00a"),
+              cprice: coin.current_price,
+              id: coin.id,
+              image: coin.image,
+              mcap: numeral(coin.market_cap).format("$0.00a"),
+              mcap_per: coin.market_cap_change_percentage_24h,
+              mcap_rank: coin.market_cap_rank,
+              msupply: coin.max_supply,
+              name: coin.name,
+              pchange: coin.price_change_percentage_24h,
+              symbol: coin.symbol,
+              tsupply: coin.total_supply,
+              tvolume: numeral(coin.total_volume).format("$0.00a"),
+            };
+
+            return (
+              <tr className="crypto_main" key={index}>
+                <td></td>
+                {/* Market Cap rank */}
+                <td>
+                  <div className="justify-content-start">
+                    <p className="crypto_number">{crypto.mcap_rank}</p>
+                  </div>
+                </td>
+                {/* Name and Symbol */}
+                <td>
+                  <div className="justify-content-start">
+                    <img src={crypto.image} />
+                    <p className="crypto_name">{crypto.name}</p>
+                    <p className="crypto_sym">{crypto.symbol}</p>
+                  </div>
+                </td>
+                {/* Current Price */}
+                <td>
+                  <div className="justify-content-end">
+                    <p className="crypto_digits">
+                      {crypto.cprice < 1
+                        ? numeral(crypto.cprice).format("$0.00000000")
+                        : numeral(crypto.cprice).format("$0,0.00")}
+                    </p>
+                  </div>
+                </td>
+                {/* Price Change */}
+                <td>
+                  <div
+                    className="justify-content-end"
+                    style={
+                      crypto.pchange > 0
+                        ? { color: "#16c784" }
+                        : { color: "#ea3943" }
+                    }
+                  >
+                    {crypto.pchange > 0 ? (
+                      <RiArrowUpSFill />
+                    ) : (
+                      <RiArrowDownSFill />
+                    )}
+                    <p className="crypto_digits">
+                      {crypto.pchange.toFixed(2)}%
+                    </p>
+                  </div>
+                </td>
+                {/* MarketCap */}
+                <td>
+                  <div className="justify-content-end text-uppercase">
+                    <p className="crypto_digits">{crypto.mcap}</p>
+                  </div>
+                </td>
+                {/* MarketCap Change */}
+                <td>
+                  <div
+                    className="justify-content-end"
+                    style={
+                      crypto.mcap_per > 0
+                        ? { color: "#16c784" }
+                        : { color: "#ea3943" }
+                    }
+                  >
+                    {crypto.mcap_per > 0 ? (
+                      <RiArrowUpSFill />
+                    ) : (
+                      <RiArrowDownSFill />
+                    )}
+                    <p className="crypto_digits">
+                      {crypto.mcap_per.toFixed(2)}%
+                    </p>
+                  </div>
+                </td>
+                {/* Volume */}
+                <td>
+                  <div className="justify-content-end text-uppercase">
+                    <p className="crypto_digits">{crypto.tvolume}</p>
+                  </div>
+                </td>
+                {/* Circulating Supply */}
+                <td>
+                  <div className="justify-content-end text-uppercase">
+                    <p className="crypto_digits">
+                      {crypto.csupply} {crypto.symbol}
+                    </p>
+                  </div>
+                </td>
+                {/* Max Supply */}
+                <td>
+                  <div className="justify-content-end text-uppercase">
+                    <p className="crypto_digits">
+                      {crypto.msupply
+                        ? numeral(crypto.msupply).format("0.0a") +
+                          " " +
+                          crypto.symbol
+                        : crypto.tsupply === null
+                        ? "--"
+                        : numeral(crypto.tsupply).format("0.0a") +
+                          " " +
+                          crypto.symbol}
+                    </p>
+                  </div>
+                </td>
+                {/* See More */}
+                <td>
+                  <div>
+                    <RiMore2Fill className="fs-5" />
+                  </div>
+                </td>
+              </tr>
+            );
+          })}
         </tbody>
       </Table>
     </Container>
