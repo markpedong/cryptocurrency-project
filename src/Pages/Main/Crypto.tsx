@@ -1,12 +1,16 @@
 import axios from "axios";
-import { useEffect, useState, useMemo } from "react";
+import { useEffect, useState, useMemo, useContext } from "react";
 import { Container, Table } from "react-bootstrap";
 import "../../Styles/Crypto.scss";
 import { RiArrowDownSFill, RiArrowUpSFill, RiMore2Fill } from "react-icons/ri";
 import { TCryptoMain } from "../../Types/Interface";
 import numeral from "numeral";
+import { Link } from "react-router-dom";
+import { CryptoContext } from "../../Hooks/useContext";
+
 export const Crypto = () => {
   const [cryptoData, setCrypto] = useState<TCryptoMain[]>([]);
+  const { crypto, setCryptoData } = useContext(CryptoContext);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -17,6 +21,7 @@ export const Crypto = () => {
           )
           .then((res) => {
             setCrypto(res.data);
+            setCryptoData(res.data);
           });
       } catch (err) {
         console.error(err);
@@ -96,9 +101,14 @@ export const Crypto = () => {
                 {/* Name and Symbol */}
                 <td>
                   <div className="justify-content-start">
-                    <img src={crypto.image} />
-                    <p className="crypto_name">{crypto.name}</p>
-                    <p className="crypto_sym">{crypto.symbol}</p>
+                    <Link
+                      to={`/currencies/${crypto.id}`}
+                      className="link_container"
+                    >
+                      <img src={crypto.image} />
+                      <p className="crypto_name">{crypto.name}</p>
+                      <p className="crypto_sym">{crypto.symbol}</p>
+                    </Link>
                   </div>
                 </td>
                 {/* Current Price */}

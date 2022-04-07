@@ -86,6 +86,20 @@ div :is(img) {
   opacity: 0.5;
 }
 
+.link_container {
+  display: flex;
+  text-decoration: none;
+  color: black;
+
+  &:hover {
+    color: black;
+  }
+
+  &:visited {
+    color: black;
+  }
+}
+
 @media screen and (max-width: 1199px) {
   .header_end {
     text-align: end;

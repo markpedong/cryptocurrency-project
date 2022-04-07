@@ -3,6 +3,7 @@ import { Container, Row, Col, Collapse, Table } from "react-bootstrap";
 import { RiArrowDownSFill, RiMore2Fill } from "react-icons/ri";
 import "../../Styles/Exchanges.scss";
 import axios from "axios";
+import numeral from "numeral";
 
 type TFiatSupported = {
   name: string;
@@ -219,8 +220,8 @@ export const Exchanges = () => {
                 </tr>
               </thead>
               <tbody>
-                {mergeDuplicates(exchanges).map(
-                  (exchange: TMergedExchanges, index: number) => {
+                {mergeDuplicates(exchanges)
+                  .map((exchange: TMergedExchanges, index: number) => {
                     // prettier-ignore
                     const data = {
                       rank: exchange.adjusted_rank,
@@ -230,12 +231,12 @@ export const Exchanges = () => {
                       image: exchange.image,
                       market: exchange.markets === undefined ? "-" : exchange.markets,
                       name: exchange.name,
-                      vol24h: exchange.quotes === undefined ? "-" : exchange.quotes.USD.adjusted_volume_24h,
-                      vol7d: exchange.quotes === undefined ? "-" : exchange.quotes.USD.adjusted_volume_7d,
-                      volSub: exchange.trade_volume_24h_btc * btc,
+                      vol24h: exchange.quotes === undefined ? "-" : numeral(exchange.quotes.USD.adjusted_volume_24h).format("$0,0.00"),
+                      vol7d: exchange.quotes === undefined ? "-" : numeral(exchange.quotes.USD.adjusted_volume_7d).format("$0,0.00"),
+                      volSub: numeral(exchange.trade_volume_24h_btc * btc).format("$0,0.00"),
                       trust_score: exchange.trust_score,
                       trust_score_rank: exchange.trust_score_rank,
-                      sessions_per_month: exchange.sessions_per_month === undefined ? "-" : exchange.sessions_per_month,
+                      sessions_per_month: exchange.sessions_per_month === undefined ? "-" : numeral( exchange.sessions_per_month).format("0,0"),
                     };
 
                     return (
@@ -301,7 +302,9 @@ export const Exchanges = () => {
                                   if (coin.id === data.id) {
                                     return (
                                       <p className="crypto_digits" key={index}>
-                                        {coin.sessions_per_month}
+                                        {numeral(
+                                          coin.sessions_per_month
+                                        ).format("0,0")}
                                       </p>
                                     );
                                   }
@@ -388,7 +391,7 @@ export const Exchanges = () => {
                                     })
                                     .slice(0, 3)}
                             </div>
-                            <div className="fiat_more_container justify-content-end">
+                            {/* <div className="fiat_more_container justify-content-end">
                               {" "}
                               {data.fiats === undefined ||
                               data.fiats.length === 0 ? (
@@ -409,14 +412,14 @@ export const Exchanges = () => {
                               ) : (
                                 <p>and +{data.fiats.length} more</p>
                               )}
-                            </div>
+                            </div> */}
                           </div>
                         </td>
                         <td></td>
                       </tr>
                     );
-                  }
-                )}
+                  })
+                  .slice(0, 100)}
               </tbody>
             </Table>
           </Container>

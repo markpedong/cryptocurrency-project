@@ -1,0 +1,174 @@
+.cryptodetails_container {
+  margin-block-start: 1.5rem;
+}
+
+.category_header {
+  display: flex;
+  justify-content: start;
+  gap: 0.5rem;
+
+  p {
+    margin-block-end: 0;
+    font-family: "Inter", sans-serif;
+    font-size: var(--font-size-0);
+    font-weight: 700;
+  }
+}
+
+.name_price_container {
+  margin-block-start: 3rem;
+}
+
+.name_price {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+
+  p {
+    font-family: "Inter", sans-serif;
+    font-weight: 700;
+    margin-block-end: 0;
+  }
+
+  .crypto_img {
+    height: 2rem;
+  }
+
+  .name_crypto {
+    font-size: var(--font-size-5);
+  }
+
+  .symbol_crypto {
+    text-transform: uppercase;
+    font-size: var(--font-size-1);
+    background-color: #eff2f5;
+    color: #58667e;
+    padding: 0.2rem;
+    border-radius: var(--radius-2);
+  }
+}
+
+.rank_container {
+  margin-block-start: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+
+  p {
+    margin-block-end: 0;
+    font-family: "Inter", sans-serif;
+    font-size: var(--font-size-0);
+    font-weight: 700;
+    background-color: #eff2f5;
+    padding: 0.2rem;
+    color: #58667e;
+    border-radius: var(--radius-2);
+  }
+
+  .rank_number {
+    color: #eff2f5;
+    background-color: #58667e;
+  }
+}
+
+.price_header {
+  font-family: "Inter", sans-serif;
+  font-size: var(--font-size-1);
+  font-weight: 700;
+  margin-block-end: 0;
+}
+
+.price_container {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+
+  p {
+    margin-block-end: 0;
+    font-family: "Inter", sans-serif;
+    font-size: var(--font-size-5);
+    font-weight: 700;
+    color: black;
+  }
+
+  .price_percentage {
+    font-size: var(--font-size-1);
+    padding-inline: 0.2rem;
+    color: white;
+    border-radius: var(--radius-2);
+  }
+}
+
+.price_low_high {
+  margin-block-start: 0.7rem;
+  display: flex;
+  justify-content: space-between;
+  font-family: "Inter", sans-serif;
+
+  p {
+    font-size: var(--font-size-0);
+    font-weight: 700;
+    color: rgba(0, 0, 0, 0.5);
+
+    .price_low_high_span {
+      color: black;
+    }
+  }
+}
+.market_header {
+  font-family: "Inter", sans-serif;
+  margin-block-start: 2rem;
+  font-size: var(--font-size-0);
+  font-weight: 700;
+  color: rgba(0, 0, 0, 0.7);
+}
+.market_percentage {
+  font-family: "Inter", sans-serif;
+  font-size: var(--font-size-0);
+  margin-block-end: 0;
+  font-weight: 700;
+  color: rgba(0, 0, 0, 1);
+}
+
+.market_supply {
+  font-family: "Inter", sans-serif;
+  margin-block-start: 2rem;
+  font-weight: 700;
+  color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: space-between;
+  p {
+    font-size: var(--font-size-0);
+    margin-block-end: 0;
+  }
+}
+
+.market_supply_span {
+  font-family: "Inter", sans-serif;
+  font-size: var(--font-size-0);
+  margin-block-end: 0;
+  font-weight: 700;
+  color: rgba(0, 0, 0, 1);
+  text-align: end !important;
+}
+
+.market_span {
+  margin-block-start: 1rem;
+  color: white;
+  font-family: "Inter", sans-serif;
+  font-size: var(--font-size-0);
+  font-weight: 800;
+}
+
+.volume_span {
+  background-color: #58667e;
+  color: white;
+  padding: 0.2rem;
+  padding-inline-end: 0.3rem;
+  border-radius: var(--radius-2);
+}
+
+.circulating_supply {
+  margin-inline-start: 0.5rem;
+  text-transform: uppercase;
+}
